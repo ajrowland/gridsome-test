@@ -10,9 +10,12 @@ module.exports = {
     {
       use: '@gridsome/source-graphql',
       options: {
-        url: 'http://localhost:4000',
+        url: process.env.API_URL,
         typeName: 'Article',
-        fieldName: 'allArticle'
+        fieldName: 'allArticle',
+        headers: {
+          'x-api-key': process.env.API_KEY,
+        }
       }
     }
   ]
